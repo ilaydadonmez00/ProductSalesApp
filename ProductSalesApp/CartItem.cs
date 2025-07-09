@@ -11,7 +11,7 @@ namespace ProductSales2
         public string Name { get; set; }
         public int Quantity { set; get; }
         public decimal UnitPrice { get; set; }
-        
+
         public decimal TotalPrice
         {
             get

@@ -37,7 +37,7 @@ namespace ProductSales2
 
         public void AddItem(Product product, int quantity)
         {
-            if(product.Quantity < quantity)
+            if (product.Quantity < quantity)
             {
                 Console.WriteLine("Not enough stock for this product.");
                 Console.ReadKey();
@@ -62,7 +62,7 @@ namespace ProductSales2
                 Items.Add(newItem);
             }
         }
-        
+
         public void Clear()
         {
             Items.Clear();

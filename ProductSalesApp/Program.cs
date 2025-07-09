@@ -1,16 +1,18 @@
-﻿using System;
+﻿using ProductSales2;
+using System;
 using System.Collections.Generic;
 
-namespace ProductSales2
+
+namespace ProductSalesApp
 {
     class Program
     {
         static List<Product> products = new List<Product>
         {
-            new Product { Barcode = "1001", Name = "Bread", Quantity = 50, UnitPrice = 5.00m},
-            new Product { Barcode = "1002", Name = "Milk", Quantity = 30, UnitPrice = 10.00m},
-            new Product { Barcode = "1003", Name = "Cheese", Quantity = 20, UnitPrice = 20.00m},
-            new Product { Barcode ="1004", Name = "Coke", Quantity = 63, UnitPrice = 8.00m}
+         new Product { Barcode = "1001", Name = "Bread", Quantity = 50, UnitPrice = 5.00m },
+         new Product { Barcode = "1002", Name = "Milk", Quantity = 30, UnitPrice = 10.00m },
+         new Product { Barcode = "1003", Name = "Cheese", Quantity = 20, UnitPrice = 20.00m },
+         new Product { Barcode = "1004", Name = "Coke", Quantity = 65, UnitPrice = 8.00m }
         };
 
         static void Main(string[] args)
@@ -30,8 +32,8 @@ namespace ProductSales2
             while (addingProducts)
             {
                 Console.Clear();
-
                 Console.WriteLine("Available Products:");
+
                 foreach (var p in products)
                 {
                     Console.WriteLine($"Barcode: {p.Barcode}, Name: {p.Name}, Stock: {p.Quantity}, Price: {p.UnitPrice} TL");
@@ -58,11 +60,10 @@ namespace ProductSales2
 
                 string choice = Console.ReadLine();
 
-                if(choice == "2")
+                if (choice == "2")
                 {
                     addingProducts = false;
                 }
-
             }
 
             Console.Clear();
@@ -73,15 +74,13 @@ namespace ProductSales2
 
             if (confirm?.ToUpper() == "Y")
             {
-                cart.Clear();
-                Console.WriteLine("\nSale completed.");
-
-                Console.WriteLine("\nUpdated Product Stocks:");
+                Console.WriteLine("\nSale completed.\n");
+                Console.WriteLine("Updated Product Stocks:");
                 foreach (var p in products)
                 {
                     Console.WriteLine($"Barcode: {p.Barcode}, Name: {p.Name}, Stock: {p.Quantity}, Price: {p.UnitPrice} TL");
                 }
-
+                cart.Clear();
                 Console.WriteLine("\nPress any key to start new sale...");
             }
             else
@@ -92,6 +91,7 @@ namespace ProductSales2
             Console.ReadKey();
         }
 
+
         static Product FindProductByBarcode(string barcode)
         {
             foreach (var product in products)
@@ -100,7 +100,6 @@ namespace ProductSales2
                 {
                     return product;
                 }
-
             }
             return null;
         }
@@ -111,11 +110,12 @@ namespace ProductSales2
             string input = Console.ReadLine();
             int quantity;
 
-            while(!int.TryParse(input, out quantity) || quantity <= 0)
+            while (!int.TryParse(input, out quantity) || quantity <= 0)
             {
                 Console.WriteLine("Invalid quantity. Try again:");
                 input = Console.ReadLine();
             }
+
             return quantity;
         }
     }
