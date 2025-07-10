@@ -68,6 +68,8 @@ namespace ProductSalesApp
 
                 cart.AddItem(product, quantity);
 
+                Console.WriteLine($"\n{quantity} x {product.Name} has been added to your cart.");
+
                 Console.WriteLine("\n1. Add another product");
                 Console.WriteLine("2. Complete sale");
 
